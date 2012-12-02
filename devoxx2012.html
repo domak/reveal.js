@@ -51,12 +51,12 @@
 					<li>développeur java depuis le siècle dernier
 					<li>IT front (ex north)
 						<ul>
-							<li>plomberie pour passage d'ordre
-							<li>appli sapin de noël
+							<li>devs passage d'ordre
+							<li>supervision des devs autour GUI de trading
 						</ul>
 					<li>intérêts: perf, TDD/BDD, toolchain (git, maven, jenkins, etc)
 					<li>participation: paris jug, devoxx
-					<li>open source partisan
+					<li>partisan open source
 				</ul>
 			</section>
 
@@ -100,42 +100,48 @@
 			<section>
 				<h2>java 8: septembre 2013</h2>
 				<ul>
+					<li><strike>Jigsaw</strike> -&gt; java 9
+					<li>JVM convergence: hybrid of JRocket and Java Hotspot VM
+					<li>java FX
 					<li>Lambda expressions (aka closures)
 					<li>Type annotations
 					<li>Date and Time API
-					<li>java FX
 				</ul>
 			</section>
 
 			<section>
 				<section>
-					<h2>Lambda expression</h2>
+					<h2>Lambda expressiosn</h2>
 					SAM: Single Abstract Method
 					<pre>
 					<code contenteditable>
 button.setOnAction(new EventHandler&lt;ActionEvent&gt;() { 
-	@Override 
-	public void handle(ActionEvent actionEvent) { 
-		ToggleButton source = 
-			(ToggleButton) actionEvent.getSource(); 
-		... 
+    @Override 
+    public void handle(ActionEvent actionEvent) { 
+         ToggleButton source = 
+            (ToggleButton) actionEvent.getSource(); 
+         ... 
 	} 
 }); 
 </code>
 				</pre>
-					<pre class="fragment">
+					<div class="fragment">
+						Lambda equivalent
+						<pre>
 					<code contenteditable>
 button.setOnAction((event)-&gt; { 
-	ToggleButton source = (ToggleButton) event.getSource(); 
-	... 
+    ToggleButton source = (ToggleButton) event.getSource(); 
+    ... 
 }); 
 </code>
 				</pre>
+					</div>
 				</section>
 				<section>
 					<h2>Lambda in collection API</h2>
-					<div>external iteration
-					<pre>
+					<div>
+						external iteration
+						<pre>
 					<code contenteditable>
 for (Shape s : shapes) {
     s.setColor(RED);
@@ -143,15 +149,17 @@ for (Shape s : shapes) {
 </code>
 				</pre>
 					</div>
-					
-					<div class="fragment">internal iteration
-					<pre>
+
+					<div class="fragment">
+						internal iteration
+						<pre>
 <code contenteditable>shapes.forEach(s -> { s.setColor(RED); }); </code>
 					</pre>
 					</div>
-					
-					<div class="fragment">streams (aka pipes)
-					<pre>
+
+					<div class="fragment">
+						streams (aka pipes)
+						<pre>
 					<code contenteditable>
 int sum = shapes.stream()
                 .filter(s -> s.getColor() == BLUE)
@@ -164,7 +172,7 @@ int sum = shapes.stream()
 
 				<section>
 					<h2>Lambda expression</h2>
-					Collection API (continued)
+					parallel collections
 					<pre>
 					<code contenteditable>
 int sum = shapes.parallel()
@@ -173,164 +181,135 @@ int sum = shapes.parallel()
                 .sum();
 </code>
 				</pre>
-					<pre class="fragment">
+					<div class="fragment">
+						optional class
+						<pre>
 					<code contenteditable>
-Optional<Shape> firstBlue = shapes.stream()
+Optional&lt;Shape&gt; firstBlue = shapes.stream()
                                   .filter(s -> s.getColor() == BLUE)
                                   .findFirst();
-
-						
-						
-						
-						
-						
-						
-						</code>
+</code>
 				</pre>
-
+					</div>
 				</section>
 			</section>
 
 
 			<section>
-				<h2>Works in Mobile Safari</h2>
-				<p>Try it out! You can swipe through the slides and pinch your way to the overview.</p>
+				<section>
+					<h2>Type annotations</h2>
+					<p>Making Java annotations more general and more useful</p>
+
+					<div class="fragment">
+						immutability
+						<pre>
+						<code contenteditable>
+@Immutable Date date = new Date(0);
+date.setTime(70);   // compile-time error
+</code>
+					</pre>
+					</div>
+
+					<div class="fragment">
+						generic type arguments:
+						<pre>
+						<code contenteditable>
+Map<@NonNull String, @NonEmpty List<@Readonly Document>> files;
+</code>
+					</pre>
+					</div>
+
+					<div class="fragment">
+						arrays:
+						<pre>
+						<code contenteditable>
+Document[@Readonly] docs1;   // docs1 is an unmodifiable one-dimensional array of mutable Documents
+</code>
+					</pre>
+					</div>
+				</section>
+				<section>
+					<h2>Type annotations</h2>
+					<div class="fragment">
+						typecasts:
+						<pre>
+						<code contenteditable>
+myString = (@NonNull String) myObject;
+</code>
+					</pre>
+					</div>
+
+					<div class="fragment">
+						type tests:
+						<pre>
+						<code contenteditable>
+boolean isNonNull = myString instanceof @NonNull String;
+</code>
+					</pre>
+					</div>
+
+					<div class="fragment">
+						object creation:
+						<pre>
+						<code contenteditable>
+new @NonEmpty @Readonly List(myNonEmptyStringSet)
+</code>
+					</pre>
+					</div>
+				</section>
 			</section>
 
 			<section>
-				<h2>Marvelous Unordered List</h2>
+				<h2>Date and Time API</h2>
+				jsr 310 (Stephen Colebourne: Joda time)
 				<ul>
-					<li>No order here</li>
-					<li>Or here</li>
-					<li>Or here</li>
-					<li>Or here</li>
+					<li>Discrete Timeline<span class="fragment roll-in">: <span style="color: blue; font-style: italic">
+								consecutive instants separated by nanosecond resolution</span></span>
+					<li>Instants<span class="fragment roll-in">: <span style="color: blue; font-style: italic">
+								specific point on a discretized timeline</span></span>
+					<li>Partials<span class="fragment roll-in">: <span style="color: blue; font-style: italic">an
+								indication of date or time that is not sufficient to specify a specific, unique point on the timeline. For
+								example,</span> "June 7"
+					</span>
+					<li>Durations<span class="fragment roll-in">:<span style="color: blue; font-style: italic"> a
+								length of elapsed time in nanoseconds</span></span>
+					<li>Periods<span class="fragment roll-in">: <span style="color: blue; font-style: italic">
+								Periods.periodBuilder().years(8).months(3).build()</span></span>
+					<li>Intervals<span class="fragment roll-in">: <span style="color: blue; font-style: italic"> a
+								period of time between two instants on the timeline</span></span>
 				</ul>
 			</section>
 
-			<section>
-				<h2>Fantastic Ordered List</h2>
-				<ol>
-					<li>One is smaller than...</li>
-					<li>Two is smaller than...</li>
-					<li>Three!</li>
-				</ol>
-			</section>
-
-
-
-			<section id="transitions">
-				<h2>Transition Styles</h2>
-				<p>
-					You can select from different transitions, like: <br> <a href="?transition=cube#/transitions">Cube</a> - <a
-						href="?transition=page#/transitions">Page</a> - <a href="?transition=concave#/transitions">Concave</a> - <a
-						href="?transition=zoom#/transitions">Zoom</a> - <a href="?transition=linear#/transitions">Linear</a> - <a
-						href="?transition=none#/transitions">None</a> - <a href="?#/transitions">Default</a>
-				</p>
-
-			</section>
-
-			<section id="themes">
-				<h2>Themes</h2>
-				<p>
-					Reveal.js comes with a few themes built in: <br> <a href="?theme=sky#/themes">Sky</a> - <a
-						href="?theme=beige#/themes">Beige</a> - <a href="?theme=simple#/themes">Simple</a> - <a
-						href="?theme=serif#/themes">Serif</a> - <a href="?theme=night#/themes">Night</a> - <a href="?#/themes">Default</a>
-				</p>
-				<p>
-					<small> * Theme demos are loaded after the presentation which leads to flicker. In production you should
-						load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-					</small>
-				</p>
-			</section>
 
 			<section>
-				<section data-state="alert">
-					<h2>Global State</h2>
-					<p>
-						Set
-						<code>data-state="something"</code>
-						on a slide and
-						<code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you apply broader style
-						changes, like switching the background.
-					</p>
-					<a href="#" class="image navigate-down"> <img width="178" height="238"
-						src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-					</a>
-				</section>
-				<section data-state="blackout">
-					<h2>"blackout"</h2>
-					<a href="#" class="image navigate-down"> <img width="178" height="238"
-						src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-					</a>
-				</section>
-				<section data-state="soothe">
-					<h2>"soothe"</h2>
-					<a href="#" class="image navigate-next"> <img width="178" height="238"
-						src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow"
-						style="-webkit-transform: rotate(-90deg);">
-					</a>
-				</section>
+				<h2>Methodology</h2>
+				LMAX: <q>Make the flaw visible, think up a solution, implement a change, then measure again to see if it helped.
+					Repeat.</q>
+
+				<div class="fragment">
+					PDCA:
+					<table>
+						<tr>
+							<td>PLAN</td>
+							<td>hypothesis</td>
+						</tr>
+						<tr>
+							<td>DO</td>
+							<td>experiment</td>
+						</tr>
+						<tr>
+							<td>CHECK</td>
+							<td>evaluation</td>
+						</tr>
+						<tr>
+							<td>ACT</td>
+							<td>Control</td>
+						</tr>
+					</table>
+				</div>
 			</section>
 
-			<section data-state="customevent">
-				<h2>Custom Events</h2>
-				<p>
-					Additionally custom events can be triggered on a per slide basis by binding to the
-					<code>data-state</code>
-					name.
-				</p>
-				<pre>
-					<code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code>
-				</pre>
-			</section>
 
-			<section>
-				<h2>Clever Quotes</h2>
-				<p>
-					These guys come in two forms, inline: <q
-						cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations"> The
-						nice thing about standards is that there are so many to choose from</q> and block:
-				</p>
-				<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-					For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-					reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.</blockquote>
-			</section>
-
-			<section>
-				<h2>Pretty Code</h2>
-				<pre>
-					<code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-					</code>
-				</pre>
-				<p>
-					Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.
-				</p>
-			</section>
-
-			<section>
-				<h2>Intergalactic Interconnections</h2>
-				<p>
-					You can link between slides internally, <a href="#/2/3">like this</a>.
-				</p>
-			</section>
 
 			<section>
 				<section>
@@ -385,31 +364,7 @@ function linkify( selector ) {
 					disctracting slides off the screen during a presentation.</p>
 			</section>
 
-			<section>
-				<h2>Stellar Links</h2>
-				<ul>
-					<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-					<li><a href="http://hakim.se/projects/reveal-js">Leave feedback on my site</a></li>
-					<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-				</ul>
-			</section>
 
-			<section>
-				<h2>It's free</h2>
-				<p>
-					reveal.js and <a href="http://www.rvl.io">rvl.io</a> are entirely free but if you'd like to support the projects
-					you can donate below. Donations will go towards hosting and domain costs.
-				</p>
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-					<input type="hidden" name="cmd" value="_donations"> <input type="hidden" name="business"
-						value="hakim.elhattab@gmail.com"> <input type="hidden" name="lc" value="US"> <input type="hidden"
-						name="item_name" value="reveal.js / rvl.io"> <input type="hidden" name="no_note" value="0"> <input
-						type="hidden" name="currency_code" value="USD"> <input type="hidden" name="bn"
-						value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest"> <input type="image"
-						src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit"
-						alt="PayPal - The safer, easier way to pay online!">
-				</form>
-			</section>
 
 			<section>
 				<h1>THE END</h1>
