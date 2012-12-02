@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<link rel="stylesheet" href="css/reveal.min.css">
+<link rel="stylesheet" href="css/reveal.css">
 <link rel="stylesheet" href="css/theme/default.css" id="theme">
 
 <!-- For syntax highlighting -->
@@ -61,14 +61,26 @@
 			</section>
 
 			<section>
-				<h2>devoxx</h2>
-				La plus grosse conférence autour de java en Europe
-				<ul>
-					<li>2 jours d'universités (cours, hands-on)
-					<li>2,5 jours de conférences
-					<li>3400 geeks
-					<li>7 salles de cinémas
-				</ul>
+				<section>
+					<h2>devoxx</h2>
+					<img src="./resources/LogoDevoxxNeg300dpi.jpg" height="200" /><br /> La plus grosse conférence autour de java en
+					Europe
+					<ul>
+						<li>2 jours d'universités (cours, hands-on)
+						<li>2,5 jours de conférences
+						<li>3 400 geeks
+						<li>7 salles de cinémas
+					</ul>
+				</section>
+
+				<section>
+					<img src="./resources/8189298599_f6c0ed9f3d_k.jpg">
+				</section>
+
+				<section>
+					<img src="./resources/8189356125_a0522ca30b_k.jpg">
+				</section>
+
 			</section>
 
 			<section>
@@ -86,16 +98,20 @@
 			</section>
 
 			<section>
-				<h2>java 8</h2>
-				<p align="left">
-					Lambda<br> Type annotations<br>Date and Time API
-				</p>
+				<h2>java 8: septembre 2013</h2>
+				<ul>
+					<li>Lambda expressions (aka closures)
+					<li>Type annotations
+					<li>Date and Time API
+					<li>java FX
+				</ul>
 			</section>
 
 			<section>
-				<h2>Lambda (aka Closure)</h2>
-
-				<pre>
+				<section>
+					<h2>Lambda expression</h2>
+					SAM: Single Abstract Method
+					<pre>
 					<code contenteditable>
 button.setOnAction(new EventHandler&lt;ActionEvent&gt;() { 
 	@Override 
@@ -105,14 +121,76 @@ button.setOnAction(new EventHandler&lt;ActionEvent&gt;() {
 		... 
 	} 
 }); 
-	
+</code>
+				</pre>
+					<pre class="fragment">
+					<code contenteditable>
 button.setOnAction((event)-&gt; { 
 	ToggleButton source = (ToggleButton) event.getSource(); 
 	... 
 }); 
 </code>
 				</pre>
+				</section>
+				<section>
+					<h2>Lambda in collection API</h2>
+					<div>external iteration
+					<pre>
+					<code contenteditable>
+for (Shape s : shapes) {
+    s.setColor(RED);
+}
+</code>
+				</pre>
+					</div>
+					
+					<div class="fragment">internal iteration
+					<pre>
+<code contenteditable>shapes.forEach(s -> { s.setColor(RED); }); </code>
+					</pre>
+					</div>
+					
+					<div class="fragment">streams (aka pipes)
+					<pre>
+					<code contenteditable>
+int sum = shapes.stream()
+                .filter(s -> s.getColor() == BLUE)
+                .map(s -> s.getWeight())
+                .sum();
+</code>
+				</pre>
+					</div>
+				</section>
+
+				<section>
+					<h2>Lambda expression</h2>
+					Collection API (continued)
+					<pre>
+					<code contenteditable>
+int sum = shapes.parallel()
+                .filter(s -> s.getColor() == BLUE)
+                .map(s -> s.getWeight())
+                .sum();
+</code>
+				</pre>
+					<pre class="fragment">
+					<code contenteditable>
+Optional<Shape> firstBlue = shapes.stream()
+                                  .filter(s -> s.getColor() == BLUE)
+                                  .findFirst();
+
+						
+						
+						
+						
+						
+						
+						</code>
+				</pre>
+
+				</section>
 			</section>
+
 
 			<section>
 				<h2>Works in Mobile Safari</h2>
@@ -148,6 +226,7 @@ button.setOnAction((event)-&gt; {
 						href="?transition=zoom#/transitions">Zoom</a> - <a href="?transition=linear#/transitions">Linear</a> - <a
 						href="?transition=none#/transitions">None</a> - <a href="?#/transitions">Default</a>
 				</p>
+
 			</section>
 
 			<section id="themes">
@@ -336,7 +415,6 @@ function linkify( selector ) {
 				<h1>THE END</h1>
 				<h3>BY Hakim El Hattab / hakim.se</h3>
 			</section>
-
 		</div>
 
 	</div>
