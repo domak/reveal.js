@@ -100,7 +100,7 @@
 			<section>
 				<h2>java 8: septembre 2013</h2>
 				<ul>
-					<li><strike>Jigsaw</strike> -&gt; java 9
+					<li><del>Jigsaw</del> -&gt; java 9
 					<li>JVM convergence: hybrid of JRocket and Java Hotspot VM
 					<li>java FX
 					<li>Lambda expressions (aka closures)
@@ -114,7 +114,7 @@
 					<h2>Lambda expressiosn</h2>
 					SAM: Single Abstract Method
 					<pre>
-					<code contenteditable>
+					<code contenteditable="true">
 button.setOnAction(new EventHandler&lt;ActionEvent&gt;() { 
     @Override 
     public void handle(ActionEvent actionEvent) { 
@@ -128,7 +128,7 @@ button.setOnAction(new EventHandler&lt;ActionEvent&gt;() {
 					<div class="fragment">
 						Lambda equivalent
 						<pre>
-					<code contenteditable>
+					<code contenteditable="true">
 button.setOnAction((event)-&gt; { 
     ToggleButton source = (ToggleButton) event.getSource(); 
     ... 
@@ -142,7 +142,7 @@ button.setOnAction((event)-&gt; {
 					<div>
 						external iteration
 						<pre>
-					<code contenteditable>
+					<code contenteditable="true">
 for (Shape s : shapes) {
     s.setColor(RED);
 }
@@ -153,17 +153,17 @@ for (Shape s : shapes) {
 					<div class="fragment">
 						internal iteration
 						<pre>
-<code contenteditable>shapes.forEach(s -> { s.setColor(RED); }); </code>
+<code contenteditable="true">shapes.forEach(s -&gt; { s.setColor(RED); }); </code>
 					</pre>
 					</div>
 
 					<div class="fragment">
 						streams (aka pipes)
 						<pre>
-					<code contenteditable>
+					<code contenteditable="true">
 int sum = shapes.stream()
-                .filter(s -> s.getColor() == BLUE)
-                .map(s -> s.getWeight())
+                .filter(s -&gt; s.getColor() == BLUE)
+                .map(s -&gt; s.getWeight())
                 .sum();
 </code>
 				</pre>
@@ -174,19 +174,19 @@ int sum = shapes.stream()
 					<h2>Lambda expression</h2>
 					parallel collections
 					<pre>
-					<code contenteditable>
+					<code contenteditable="true">
 int sum = shapes.parallel()
-                .filter(s -> s.getColor() == BLUE)
-                .map(s -> s.getWeight())
+                .filter(s -&gt; s.getColor() == BLUE)
+                .map(s -&gt; s.getWeight())
                 .sum();
 </code>
 				</pre>
 					<div class="fragment">
 						optional class
 						<pre>
-					<code contenteditable>
+					<code contenteditable="true">
 Optional&lt;Shape&gt; firstBlue = shapes.stream()
-                                  .filter(s -> s.getColor() == BLUE)
+                                  .filter(s -&gt; s.getColor() == BLUE)
                                   .findFirst();
 </code>
 				</pre>
@@ -203,7 +203,7 @@ Optional&lt;Shape&gt; firstBlue = shapes.stream()
 					<div class="fragment">
 						immutability
 						<pre>
-						<code contenteditable>
+						<code contenteditable="true">
 @Immutable Date date = new Date(0);
 date.setTime(70);   // compile-time error
 </code>
@@ -213,8 +213,8 @@ date.setTime(70);   // compile-time error
 					<div class="fragment">
 						generic type arguments:
 						<pre>
-						<code contenteditable>
-Map<@NonNull String, @NonEmpty List<@Readonly Document>> files;
+						<code contenteditable="true">
+Map&lt;@NonNull String, @NonEmpty List&lt;@Readonly Document&gt;&gt; files;
 </code>
 					</pre>
 					</div>
@@ -222,7 +222,7 @@ Map<@NonNull String, @NonEmpty List<@Readonly Document>> files;
 					<div class="fragment">
 						arrays:
 						<pre>
-						<code contenteditable>
+						<code contenteditable="true">
 Document[@Readonly] docs1;   // docs1 is an unmodifiable 
     // one-dimensional array of mutable Documents
 </code>
@@ -234,7 +234,7 @@ Document[@Readonly] docs1;   // docs1 is an unmodifiable
 					<div class="fragment">
 						typecasts:
 						<pre>
-						<code contenteditable>
+						<code contenteditable="true">
 myString = (@NonNull String) myObject;
 </code>
 					</pre>
@@ -243,7 +243,7 @@ myString = (@NonNull String) myObject;
 					<div class="fragment">
 						type tests:
 						<pre>
-						<code contenteditable>
+						<code contenteditable="true">
 boolean isNonNull = myString instanceof @NonNull String;
 </code>
 					</pre>
@@ -252,7 +252,7 @@ boolean isNonNull = myString instanceof @NonNull String;
 					<div class="fragment">
 						object creation:
 						<pre>
-						<code contenteditable>
+						<code contenteditable="true">
 new @NonEmpty @Readonly List(myNonEmptyStringSet)
 </code>
 					</pre>
