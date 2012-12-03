@@ -39,6 +39,7 @@
 
 			<section>
 				<h1>devoxx</h1>
+				<h3>Les tendances</h3>
 				<h3>collection automne - hiver 2012/2013</h3>
 				<p>
 					<small>christophe.domas@natixis.com</small>
@@ -55,21 +56,23 @@
 							<li>supervision des devs autour GUI de trading
 						</ul>
 					<li>intérêts: perf, TDD/BDD, toolchain (git, maven, jenkins, etc)
-					<li>participation: paris jug, devoxx
 					<li>partisan open source
+					<li>participation: paris jug, devoxx
 				</ul>
 			</section>
 
 			<section>
 				<section>
 					<h2>devoxx</h2>
-					<img src="./resources/LogoDevoxxNeg300dpi.jpg" height="200" /><br /> La plus grosse conférence autour de java en
+					<img src="./resources/LogoDevoxxNeg300dpi.jpg" height="200" /><br />La plus grosse conférence autour de java en
 					Europe
 					<ul>
 						<li>2 jours d'universités (cours, hands-on)
 						<li>2,5 jours de conférences
 						<li>3 400 geeks
-						<li>7 salles de cinémas
+						<li>premium sponsors: Oracle/Android
+						<li>Anvers - Belgique
+						<li>Kinepolis: 7 salles de cinémas
 					</ul>
 				</section>
 
@@ -94,6 +97,51 @@
 					<li>Future
 					<li>Architecture, Cloud and Security
 					<li>New languages on the JVM
+				</ul>
+			</section>
+
+			<section>
+				<h2>Les has been</h2>
+				<ul>
+					<li>Flash
+					<li>JSF
+					<li>SOAP
+				</ul>
+			</section>
+
+			<section>
+				<h2>Les absents</h2>
+				<ul>
+					<li>GWT 2.5
+					<li>adobe
+				</ul>
+			</section>
+
+			<section>
+				<h2>Les indémodables</h2>
+				<ul>
+					<li>Spring, CDI
+					<li>Scala
+					<li>Android
+				</ul>
+			</section>
+
+			<section>
+				<h2>Les New Kids On The Block</h2>
+				<ul>
+					<li>JSON / REST
+					<li>html 5 / css3 / javascript
+						<ul>
+							<li>Nashorn: javascript engine inside the JVM (java 8)
+							<li>node.js: event driven server in javascript
+							<li>Vert.X: eq. Node.JS multi-language
+							<li>angular.js
+							<li>backbone
+							<li>Dart: new language compiled in javascript (google)
+						</ul>
+					<li>Raspberry PI / internet of things
+					<li>Java FX
+					<li>Java 8
 				</ul>
 			</section>
 
@@ -200,15 +248,13 @@ Optional&lt;Shape&gt; firstBlue = shapes.stream()
 					<h2>Type annotations</h2>
 					<p>Making Java annotations more general and more useful</p>
 
-					<div class="fragment">
-						immutability
-						<pre>
+					immutability:
+					<pre>
 						<code contenteditable="true">
 @Immutable Date date = new Date(0);
 date.setTime(70);   // compile-time error
 </code>
 					</pre>
-					</div>
 
 					<div class="fragment">
 						generic type arguments:
@@ -231,14 +277,12 @@ Document[@Readonly] docs1;   // docs1 is an unmodifiable
 				</section>
 				<section>
 					<h2>Type annotations</h2>
-					<div class="fragment">
-						typecasts:
-						<pre>
+					type casts:
+					<pre>
 						<code contenteditable="true">
 myString = (@NonNull String) myObject;
 </code>
 					</pre>
-					</div>
 
 					<div class="fragment">
 						type tests:
@@ -270,8 +314,7 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 								specific point on a discretized timeline</span></span>
 					<li>Partials<span class="fragment roll-in">: <span style="color: blue; font-style: italic">an
 								indication of date or time that is not sufficient to specify a specific, unique point on the timeline. For
-								example,</span> "June 7"
-					</span>
+								example, "Jun e 7"</span></span>
 					<li>Durations<span class="fragment roll-in">:<span style="color: blue; font-style: italic"> a
 								length of elapsed time in nanoseconds</span></span>
 					<li>Periods<span class="fragment roll-in">: <span style="color: blue; font-style: italic">
@@ -284,33 +327,50 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 
 			<section>
 				<h2>Methodology</h2>
-				LMAX: <q>Make the flaw visible, think up a solution, implement a change, then measure again to see if it helped.
-					Repeat.</q>
 
-				<div class="fragment">
-					PDCA:
-					<table>
-						<tr>
-							<td>PLAN</td>
-							<td>hypothesis</td>
-						</tr>
-						<tr>
-							<td>DO</td>
-							<td>experiment</td>
-						</tr>
-						<tr>
-							<td>CHECK</td>
-							<td>evaluation</td>
-						</tr>
-						<tr>
-							<td>ACT</td>
-							<td>Control</td>
-						</tr>
-					</table>
+				<div align="left">
+					<br /> Neil Ford:
+					<div style="position: relative; left: 50px">
+						<table>
+							<thead>
+								<tr>
+									<th>PDCA</th>
+									<th>Scientific</th>
+								</tr>
+							</thead>
+							<tr>
+								<td>PLAN</td>
+								<td>hypothesis</td>
+							</tr>
+							<tr>
+								<td>DO</td>
+								<td>experiment</td>
+							</tr>
+							<tr>
+								<td>CHECK</td>
+								<td>evaluation</td>
+							</tr>
+							<tr>
+								<td>ACT</td>
+								<td>Control</td>
+							</tr>
+						</table>
+					</div>
 				</div>
+
+				<br />
+				<p class="fragment" align="left">
+					LMAX: <q>Make the flaw visible, think up a solution, implement a change, then measure again to see if it
+						helped. Repeat.</q>
+				</p>
+
+				<br />
+				<p class="fragment" align="left">
+					En général:
+					<del>Adoptons</del>
+					Adaptons l'agile
+				</p>
 			</section>
-
-
 
 			<section>
 				<section>
@@ -371,6 +431,7 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 				<h1>THE END</h1>
 				<h3>BY Hakim El Hattab / hakim.se</h3>
 			</section>
+
 		</div>
 
 	</div>
@@ -429,6 +490,7 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 			]
 		});
 	</script>
+
 
 </body>
 </html>
