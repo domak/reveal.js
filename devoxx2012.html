@@ -156,9 +156,6 @@
 				<section>
 					<h2>Raspberry PI</h2>
 					<img src="./resources/raspberry-pi.jpg" height="500" />
-					<p align="left">
-						Java FX beta<br> client every where =&gt; server everywhere
-					</p>
 
 				</section>
 				<section class="fragment">
@@ -167,7 +164,87 @@
 				</section>
 				<section class="fragment">
 					<h2>Raspberry PI</h2>
+					<p align="left">
+						Java FX beta<br> client every where =&gt; server everywhere
+					</p>
 					<img src="./resources/like machine.jpg" height="500" />
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>JSON</h2>
+					JSR 353: Java API for JSON Processing
+					<ul>
+						<li>parsing, serialization (like JAXP, StAX)
+						<li>binding (like JAXB)
+					</ul>
+					<div style="position: relative; float: left; width: 50%">
+						<pre>
+							<code style="font-size: 15px">
+{
+    "firstName": "John",
+    "lastName": "Smith",
+    "age": 25,
+    "address": {
+        "streetAddress": "21 2nd Street",
+        "city": "New York",
+        "state": "NY",
+        "postalCode": "10021"
+    },
+    "phoneNumber": [
+        {
+            "type": "home",
+            "number": "212 555-1234"
+        },
+        {
+            "type": "fax",
+            "number": "646 555-4567"
+        }
+    ]
+}</code>
+						</pre>
+					</div>
+					<div style="position: relative; float: left; width: 50%">
+						<pre>
+							<code style="font-size: 15px">
+&lt;person&gt;
+  &lt;firstName&gt;John&lt;/firstName&gt;
+  &lt;lastName&gt;Smith&lt;/lastName&gt;
+  &lt;age&gt;25&lt;/age&gt;
+  &lt;address&gt;
+    &lt;streetAddress&gt;21 2nd Street&lt;/streetAddress&gt;
+    &lt;city&gt;New York&lt;/city&gt;
+    &lt;state&gt;NY&lt;/state&gt;
+    &lt;postalCode&gt;10021&lt;/postalCode&gt;
+  &lt;/address&gt;
+  &lt;phoneNumbers&gt;
+    &lt;phoneNumber type="home"&gt;212 555-1234&lt;/phoneNumber&gt;
+    &lt;phoneNumber type="fax"&gt;646 555-4567&lt;/phoneNumber&gt;
+  &lt;/phoneNumbers&gt;
+&lt;/person&gt;							
+</code>
+						</pre>
+					</div>
+				</section>
+				<section>
+					<h2>REST</h2>
+					JSR-311: JAX-RS (Jersey)<br>
+					Back to basics
+					<pre>
+						<code>
+    GET
+    POST
+    PUT
+    DELETE	
+    
+    
+    GET http://example.com/resources/				
+    GET http://example.com/resources/item17		
+    
+    @Path("/resources/{id}/")		
+					</code>
+					</pre>
 				</section>
 			</section>
 
@@ -175,8 +252,8 @@
 				<h2>java 8: septembre 2013</h2>
 				<ul>
 					<li><del>Jigsaw</del> -&gt; java 9
-					<li>JVM convergence: hybrid of JRocket and Java Hotspot VM
-					<li>java FX
+					<li>JVM convergence: hybrid of JRockit and Java Hotspot VM
+					<li>java FX 8
 					<li>Lambda expressions (aka closures)
 					<li>Type annotations
 					<li>Date and Time API
@@ -268,6 +345,24 @@ Optional&lt;Shape&gt; firstBlue = shapes.stream()
 				</section>
 			</section>
 
+			<section>
+				<h2>diclaimer: personnal opinion</h2>
+				<p align="left">automatic memory management =&gt; java
+				<p>
+				<div class=fragment>
+					<p align="left">
+						multi-core management =&gt; ???? <br />
+					</p>
+					<br />
+					<div style="position: relative; float: left; width: 50%">
+						parallel <img src="./resources/parallel.jpg" />
+					</div>
+					<div style="position: relative; float: left; width: 50%">
+						concurrent<img src="./resources/concurrent.jpg" />
+					</div>
+				</div>
+			</section>
+
 
 			<section>
 				<section>
@@ -334,18 +429,12 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 				<h2>Date and Time API</h2>
 				jsr 310 (Stephen Colebourne: Joda time)
 				<ul>
-					<li>Discrete Timeline<span class="fragment roll-in">: <span class="def"> consecutive instants
-								separated by nanosecond resolution</span></span>
-					<li>Instants<span class="fragment roll-in">: <span class="def"> specific point on a discretized
-								timeline</span></span>
-					<li>Partials<span class="fragment roll-in">: <span class="def">an indication of date or time
-								that is not sufficient to specify a specific, unique point on the timeline. For example, "Jun e 7"</span></span>
-					<li>Durations<span class="fragment roll-in">:<span class="def"> a length of elapsed time in
-								nanoseconds</span></span>
-					<li>Periods<span class="fragment roll-in">: <span class="def">
-								Periods.periodBuilder().years(8).months(3).build()</span></span>
-					<li>Intervals<span class="fragment roll-in">: <span class="def"> a period of time between two
-								instants on the timeline</span></span>
+					<li>Discrete Timeline
+					<li>Instants
+					<li>Partials - example, "Jun e 7"
+					<li>Durations
+					<li>Periods - exemple <code> Periods.periodBuilder().years(8).months(3).build()</code>
+					<li>Intervals
 				</ul>
 			</section>
 
@@ -356,7 +445,7 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 				<div align="left">
 					<br /> Neil Ford:
 					<div style="position: relative; left: 50px">
-						<table >
+						<table>
 							<thead>
 								<tr>
 									<th width="200">PDCA</th>
@@ -385,15 +474,13 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 
 				<br />
 				<p class="fragment" align="left">
-					LMAX: <q class="def">Make the flaw visible, think up a solution, implement a change, then measure again to see if it
-						helped. Repeat.</q>
+					LMAX: <q class="def">Make the flaw visible, think up a solution, implement a change, then measure again to see
+						if it helped. Repeat.</q>
 				</p>
 
 				<br />
 				<p class="fragment" align="left">
-					En général:
-					<span class="def"><del>adoptons</del>
-					adaptons l'agile !</span>
+					En général: <span class="def"><del>adoptons</del> adaptons l'agile !</span>
 				</p>
 			</section>
 
@@ -419,10 +506,21 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 					<tr>
 						<td><div class="circle" align="center">5</div></td>
 						<td><div align="left">
-								<q>ce mec est génial, je le prend dans mon équipe!</q>
+								<q>ce mec est génial, je le prends dans mon équipe!</q>
 							</div></td>
 					</tr>
 				</table>
+			</section>
+
+			<section>
+				<h1>END</h1>
+				<p>
+					<small>christophe.domas@natixis.com</small>
+				</p>
+			</section>
+
+			<section>
+				<img src="./resources/IMG_20121116_083834.jpg" height="600" />
 			</section>
 		</div>
 	</div>
