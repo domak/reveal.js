@@ -52,12 +52,12 @@
 					<li>développeur java depuis le siècle dernier
 					<li>IT front (ex north)
 						<ul>
-							<li>devs passage d'ordre
-							<li>supervision des devs autour GUI de trading
+							<li>passage d'ordre
+							<li>plugins pour GUI de trading
 						</ul>
-					<li>intérêts: multi-threading, perf, TDD/BDD, toolchain (git, maven, jenkins, etc)
+					<li>intérêts: multi-threading, performance, TDD/BDD, toolchain (git, maven, jenkins, etc)
 					<li>partisan open source
-					<li>participation: paris jug, devoxx
+					<li>participation: paris jug, devoxx, SSII events
 				</ul>
 			</section>
 
@@ -70,7 +70,7 @@
 						<li>2 jours d'universités (cours, hands-on)
 						<li>2,5 jours de conférences
 						<li>3 400 geeks
-						<li>premium sponsors: Oracle/Android
+						<li>premium sponsors: Oracle/Google
 						<li>Anvers - Belgique
 						<li>Kinepolis: 7 salles de cinémas
 					</ul>
@@ -112,8 +112,8 @@
 				<div style="position: relative; float: left; width: 33%" class="fragment roll-in">
 					<h3>absent</h3>
 					<ul>
+						<li>Adobe
 						<li>GWT 2.5
-						<li>adobe
 					</ul>
 
 				</div>
@@ -121,8 +121,8 @@
 					<h3>indémodable</h3>
 					<ul>
 						<li>Spring, CDI
-						<li>Scala
 						<li>Android
+						<li>Scala
 					</ul>
 				</div>
 			</section>
@@ -132,12 +132,12 @@
 					<h2>hype</h2>
 					<p align="left">html 5 / css3 / javascript</p>
 					<ul>
-						<li>Nashorn: javascript engine inside the JVM (java 8)
-						<li>node.js: event driven server in javascript
-						<li>Vert.X: polyglot eq. Node.JS
-						<li>angular.js: client javascript framework by google
-						<li>backbone.js: model framework in javascript
-						<li>Dart: new language compiled in javascript (google)
+						<li>nashorn : <span class="def">javascript engine inside the JVM (java 8)</span>
+						<li>node.js : <span class="def">event driven server in javascript</span>
+						<li>vert.X : <span class="def">polyglot eq. Node.JS</span>
+						<li>angular.js : <span class="def">client javascript framework by google</span>
+						<li>backbone.js : <span class="def">model framework in javascript</span>
+						<li>dart : <span class="def">new language compiled in javascript (google)</span>
 					</ul>
 				</section>
 
@@ -156,6 +156,10 @@
 				<section>
 					<h2>Raspberry PI</h2>
 					<img src="./resources/raspberry-pi.jpg" height="500" />
+					<p align="left">
+						Java FX beta<br> client every where =&gt; server everywhere
+					</p>
+
 				</section>
 				<section class="fragment">
 					<h2>Raspberry PI</h2>
@@ -330,19 +334,18 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 				<h2>Date and Time API</h2>
 				jsr 310 (Stephen Colebourne: Joda time)
 				<ul>
-					<li>Discrete Timeline<span class="fragment roll-in">: <span style="color: blue; font-style: italic">
-								consecutive instants separated by nanosecond resolution</span></span>
-					<li>Instants<span class="fragment roll-in">: <span style="color: blue; font-style: italic">
-								specific point on a discretized timeline</span></span>
-					<li>Partials<span class="fragment roll-in">: <span style="color: blue; font-style: italic">an
-								indication of date or time that is not sufficient to specify a specific, unique point on the timeline. For
-								example, "Jun e 7"</span></span>
-					<li>Durations<span class="fragment roll-in">:<span style="color: blue; font-style: italic"> a
-								length of elapsed time in nanoseconds</span></span>
-					<li>Periods<span class="fragment roll-in">: <span style="color: blue; font-style: italic">
+					<li>Discrete Timeline<span class="fragment roll-in">: <span class="def"> consecutive instants
+								separated by nanosecond resolution</span></span>
+					<li>Instants<span class="fragment roll-in">: <span class="def"> specific point on a discretized
+								timeline</span></span>
+					<li>Partials<span class="fragment roll-in">: <span class="def">an indication of date or time
+								that is not sufficient to specify a specific, unique point on the timeline. For example, "Jun e 7"</span></span>
+					<li>Durations<span class="fragment roll-in">:<span class="def"> a length of elapsed time in
+								nanoseconds</span></span>
+					<li>Periods<span class="fragment roll-in">: <span class="def">
 								Periods.periodBuilder().years(8).months(3).build()</span></span>
-					<li>Intervals<span class="fragment roll-in">: <span style="color: blue; font-style: italic"> a
-								period of time between two instants on the timeline</span></span>
+					<li>Intervals<span class="fragment roll-in">: <span class="def"> a period of time between two
+								instants on the timeline</span></span>
 				</ul>
 			</section>
 
@@ -353,26 +356,26 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 				<div align="left">
 					<br /> Neil Ford:
 					<div style="position: relative; left: 50px">
-						<table>
+						<table >
 							<thead>
 								<tr>
-									<th>PDCA</th>
+									<th width="200">PDCA</th>
 									<th>Scientific</th>
 								</tr>
 							</thead>
-							<tr>
+							<tr class="def">
 								<td>PLAN</td>
 								<td>hypothesis</td>
 							</tr>
-							<tr>
+							<tr class="def">
 								<td>DO</td>
 								<td>experiment</td>
 							</tr>
-							<tr>
+							<tr class="def">
 								<td>CHECK</td>
 								<td>evaluation</td>
 							</tr>
-							<tr>
+							<tr class="def">
 								<td>ACT</td>
 								<td>Control</td>
 							</tr>
@@ -382,15 +385,15 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 
 				<br />
 				<p class="fragment" align="left">
-					LMAX: <q>Make the flaw visible, think up a solution, implement a change, then measure again to see if it
+					LMAX: <q class="def">Make the flaw visible, think up a solution, implement a change, then measure again to see if it
 						helped. Repeat.</q>
 				</p>
 
 				<br />
 				<p class="fragment" align="left">
 					En général:
-					<del>adoptons</del>
-					adaptons l'agile !
+					<span class="def"><del>adoptons</del>
+					adaptons l'agile !</span>
 				</p>
 			</section>
 
@@ -420,14 +423,8 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 							</div></td>
 					</tr>
 				</table>
-
 			</section>
-
-
-
-
 		</div>
-
 	</div>
 
 	<script src="lib/js/head.min.js"></script>
