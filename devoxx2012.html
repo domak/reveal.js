@@ -107,6 +107,7 @@
 						<li>Flash
 						<li>JSF
 						<li>SOAP
+						<li>Swing
 					</ul>
 				</div>
 				<div style="position: relative; float: left; width: 33%" class="fragment roll-in">
@@ -229,8 +230,7 @@
 				</section>
 				<section>
 					<h2>REST</h2>
-					JSR-311: JAX-RS (Jersey)<br>
-					Back to basics
+					JSR-311: JAX-RS (Jersey)<br> Back to basics
 					<pre>
 						<code>
     GET
@@ -312,8 +312,7 @@ for (Shape s : shapes) {
 						streams (aka pipes)
 						<pre>
 					<code contenteditable="true">
-int sum = shapes.stream()
-                .filter(s -&gt; s.getColor() == BLUE)
+int sum = shapes.filter(s -&gt; s.getColor() == BLUE)
                 .map(s -&gt; s.getWeight())
                 .sum();
 </code>
@@ -323,8 +322,16 @@ int sum = shapes.stream()
 
 				<section>
 					<h2>Lambda in collection API</h2>
-					parallel collections
+					optional class
 					<pre>
+					<code contenteditable="true">
+Optional&lt;Shape&gt; firstBlue = shapes.filter(s -&gt; s.getColor() == BLUE)
+                                  .findFirst();
+</code>
+				</pre>
+					<div class="fragment">
+						parallel collections
+						<pre>
 					<code contenteditable="true">
 int sum = shapes.parallel()
                 .filter(s -&gt; s.getColor() == BLUE)
@@ -332,16 +339,8 @@ int sum = shapes.parallel()
                 .sum();
 </code>
 				</pre>
-					<div class="fragment">
-						optional class
-						<pre>
-					<code contenteditable="true">
-Optional&lt;Shape&gt; firstBlue = shapes.stream()
-                                  .filter(s -&gt; s.getColor() == BLUE)
-                                  .findFirst();
-</code>
-				</pre>
 					</div>
+
 				</section>
 			</section>
 
@@ -365,64 +364,30 @@ Optional&lt;Shape&gt; firstBlue = shapes.stream()
 
 
 			<section>
-				<section>
-					<h2>Type annotations</h2>
-					<p>Making Java annotations more general and more useful</p>
+				<h2>Type annotations</h2>
+				<p>Making Java annotations more general and more useful</p>
 
-					immutability:
-					<pre>
-						<code contenteditable="true">
+				<pre>
+					<code contenteditable="true">
+// immutability:
 @Immutable Date date = new Date(0);
 date.setTime(70);   // compile-time error
-</code>
-					</pre>
 
-					<div class="fragment">
-						generic type arguments:
-						<pre>
-						<code contenteditable="true">
+
+// generic type arguments:
 Map&lt;@NonNull String, @NonEmpty List&lt;@Readonly Document&gt;&gt; files;
-</code>
-					</pre>
-					</div>
 
-					<div class="fragment">
-						arrays:
-						<pre>
-						<code contenteditable="true">
+
+// arrays:
 Document[@Readonly] docs1;   // docs1 is an unmodifiable 
     // one-dimensional array of mutable Documents
-</code>
-					</pre>
-					</div>
-				</section>
-				<section>
-					<h2>Type annotations</h2>
-					type casts:
-					<pre>
-						<code contenteditable="true">
-myString = (@NonNull String) myObject;
-</code>
-					</pre>
 
-					<div class="fragment">
-						type tests:
-						<pre>
-						<code contenteditable="true">
-boolean isNonNull = myString instanceof @NonNull String;
-</code>
-					</pre>
-					</div>
 
-					<div class="fragment">
-						object creation:
-						<pre>
-						<code contenteditable="true">
+// object creation:
 new @NonEmpty @Readonly List(myNonEmptyStringSet)
 </code>
-					</pre>
-					</div>
-				</section>
+				</pre>
+
 			</section>
 
 			<section>
@@ -431,9 +396,9 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 				<ul>
 					<li>Discrete Timeline
 					<li>Instants
-					<li>Partials - example, "Jun e 7"
+					<li>Partials - "June 7"
 					<li>Durations
-					<li>Periods - exemple <code> Periods.periodBuilder().years(8).months(3).build()</code>
+					<li>Periods - <code style="font-size: 25px"> Periods.periodBuilder().years(8).months(3).build()</code>
 					<li>Intervals
 				</ul>
 			</section>
@@ -470,6 +435,7 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 							</tr>
 						</table>
 					</div>
+
 				</div>
 
 				<br />
