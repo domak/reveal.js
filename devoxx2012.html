@@ -84,6 +84,10 @@
 					<img src="./resources/8189356125_a0522ca30b_k.jpg">
 				</section>
 
+				<section>
+					<q>Cher papa noël...</q> <img src="./resources/nao.jpg">
+				</section>
+
 			</section>
 
 			<section>
@@ -100,62 +104,24 @@
 				</ul>
 			</section>
 
-			<section>
-				<div style="position: relative; float: left; width: 33%">
-					<h3>has been</h3>
-					<ul>
-						<li>Flash
-						<li>JSF
-						<li>SOAP
-						<li>Swing
-					</ul>
-				</div>
-				<div style="position: relative; float: left; width: 33%" class="fragment roll-in">
-					<h3>absent</h3>
-					<ul>
-						<li>Adobe
-						<li>GWT 2.5
-					</ul>
 
-				</div>
-				<div style="position: relative; float: left; width: 33%" class="fragment roll-in">
-					<h3>indémodable</h3>
-					<ul>
-						<li>Spring, CDI
-						<li>Android
-						<li>Scala
-					</ul>
-				</div>
+			<section>
+				<h2>web</h2>
+				<h3>html 5 / css3 / javascript</h3>
+				<ul>
+					<li>nashorn : <span class="def">javascript engine inside the JVM (java 8)</span>
+					<li>node.js : <span class="def">event driven server in javascript</span>
+					<li>vert.X : <span class="def">polyglot eq. Node.JS</span>
+					<li>angular.js : <span class="def">client javascript framework by google</span>
+					<li>backbone.js : <span class="def">model framework in javascript</span>
+					<li>dart : <span class="def">new language compiled in javascript (google)</span>
+				</ul>
 			</section>
 
 			<section>
 				<section>
-					<h2>hype</h2>
-					<p align="left">html 5 / css3 / javascript</p>
-					<ul>
-						<li>nashorn : <span class="def">javascript engine inside the JVM (java 8)</span>
-						<li>node.js : <span class="def">event driven server in javascript</span>
-						<li>vert.X : <span class="def">polyglot eq. Node.JS</span>
-						<li>angular.js : <span class="def">client javascript framework by google</span>
-						<li>backbone.js : <span class="def">model framework in javascript</span>
-						<li>dart : <span class="def">new language compiled in javascript (google)</span>
-					</ul>
-				</section>
-
-				<section class="fragment">
-					<h2>hype</h2>
-					<ul>
-						<li>Raspberry PI / internet of things
-						<li>JSON / REST
-						<li>Java FX
-						<li>Java 8
-					</ul>
-				</section>
-			</section>
-
-			<section>
-				<section>
-					<h2>Raspberry PI</h2>
+					<h2>future</h2>
+					<h3>Raspberry PI</h3>
 					<img src="./resources/raspberry-pi.jpg" height="500" />
 
 				</section>
@@ -164,9 +130,9 @@
 					<img src="./resources/RaspiModelB.png" height="500" />
 				</section>
 				<section class="fragment">
-					<h2>Raspberry PI</h2>
+					<h2>Raspberry PI / internet of things</h2>
 					<p align="left">
-						Java FX beta<br> client every where =&gt; server everywhere
+						JDK + Java FX beta port on linux ARM<br> client every where =&gt; server everywhere
 					</p>
 					<img src="./resources/like machine.jpg" height="500" />
 				</section>
@@ -174,14 +140,16 @@
 
 			<section>
 				<section>
-					<h2>JSON</h2>
-					JSR 353: Java API for JSON Processing
-					<ul>
-						<li>parsing, serialization (like JAXP, StAX)
-						<li>binding (like JAXB)
-					</ul>
-					<div style="position: relative; float: left; width: 50%">
-						<pre>
+					<h2>JEE 7</h2>
+					<p align="left">JMS 2.0, WebSocket</p>
+					<div class="fragment">
+						<p align="left">JSR 353: Java API for JSON Processing
+						<ul>
+							<li>parsing, serialization (like JAXP, StAX)
+							<li>binding (like JAXB)
+						</ul>
+						<div style="position: relative; float: left; width: 50%">
+							<pre>
 							<code style="font-size: 15px">
 {
     "firstName": "John",
@@ -205,9 +173,9 @@
     ]
 }</code>
 						</pre>
-					</div>
-					<div style="position: relative; float: left; width: 50%">
-						<pre>
+						</div>
+						<div style="position: relative; float: left; width: 50%">
+							<pre>
 							<code style="font-size: 15px">
 &lt;person&gt;
   &lt;firstName&gt;John&lt;/firstName&gt;
@@ -226,11 +194,14 @@
 &lt;/person&gt;							
 </code>
 						</pre>
+						</div>
 					</div>
 				</section>
 				<section>
-					<h2>REST</h2>
-					JSR-311: JAX-RS (Jersey)<br> Back to basics
+					<h2>JEE 7</h2>
+					<p align="left">
+						JSR-311: JAX-RS aka REST (ref impl: Jersey)<br> Back to basics
+					</p>
 					<pre>
 						<code>
     GET
@@ -249,7 +220,8 @@
 			</section>
 
 			<section>
-				<h2>java 8: septembre 2013</h2>
+				<h2>java 8</h2>
+				<h3>septembre 2013</h3>
 				<ul>
 					<li><del>Jigsaw</del> -&gt; java 9
 					<li>JVM convergence: hybrid of JRockit and Java Hotspot VM
@@ -262,7 +234,8 @@
 
 			<section>
 				<section>
-					<h2>Lambda expressions</h2>
+					<h2>java 8</h2>
+					<h3>Lambda expressions</h3>
 					SAM: Single Abstract Method
 					<pre>
 					<code contenteditable="true">
@@ -289,7 +262,8 @@ button.setOnAction((event)-&gt; {
 					</div>
 				</section>
 				<section>
-					<h2>Lambda in collection API</h2>
+					<h2>java 8</h2>
+					<h3>Lambda in collection API</h3>
 					<div>
 						external iteration
 						<pre>
@@ -321,7 +295,8 @@ int sum = shapes.filter(s -&gt; s.getColor() == BLUE)
 				</section>
 
 				<section>
-					<h2>Lambda in collection API</h2>
+					<h2>java 8</h2>
+					<h3>Lambda in collection API</h3>
 					optional class
 					<pre>
 					<code contenteditable="true">
@@ -364,7 +339,8 @@ int sum = shapes.parallel()
 
 
 			<section>
-				<h2>Type annotations</h2>
+				<h2>java 8</h2>
+				<h3>Type annotations</h3>
 				<p>Making Java annotations more general and more useful</p>
 
 				<pre>
@@ -391,15 +367,16 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 			</section>
 
 			<section>
-				<h2>Date and Time API</h2>
+				<h2>java 8</h2>
+				<h3>Date and Time API</h3>
 				jsr 310 (Stephen Colebourne: Joda time)
 				<ul>
 					<li>Discrete Timeline
 					<li>Instants
-					<li>Partials - "June 7"
+					<li>Intervals
 					<li>Durations
 					<li>Periods - <code style="font-size: 25px"> Periods.periodBuilder().years(8).months(3).build()</code>
-					<li>Intervals
+					<li>Partials - "June 7"
 				</ul>
 			</section>
 
@@ -451,6 +428,13 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 			</section>
 
 			<section>
+				<h1>END</h1>
+				<p>
+					<small>christophe.domas@natixis.com</small>
+				</p>
+			</section>
+
+			<section>
 				<h2>Pour le dessert...</h2>
 				<h3>vous reprendrez bien un peu de ROTI?</h3>
 				<br>
@@ -479,15 +463,37 @@ new @NonEmpty @Readonly List(myNonEmptyStringSet)
 			</section>
 
 			<section>
-				<h1>END</h1>
-				<p>
-					<small>christophe.domas@natixis.com</small>
-				</p>
-			</section>
-
-			<section>
 				<img src="./resources/IMG_20121116_083834.jpg" height="600" />
 			</section>
+			<section>
+				<div style="position: relative; float: left; width: 33%">
+					<h3>has been</h3>
+					<ul>
+						<li>Flash
+						<li>JSF
+						<li>SOAP
+						<li>Swing
+					</ul>
+				</div>
+				<div style="position: relative; float: left; width: 33%" class="fragment roll-in">
+					<h3>absent</h3>
+					<ul>
+						<li>Adobe
+						<li>GWT 2.5
+					</ul>
+
+				</div>
+				<div style="position: relative; float: left; width: 33%" class="fragment roll-in">
+					<h3>indémodable</h3>
+					<ul>
+						<li>Spring, CDI
+						<li>Android
+						<li>Scala
+					</ul>
+				</div>
+			</section>
+
+
 		</div>
 	</div>
 
