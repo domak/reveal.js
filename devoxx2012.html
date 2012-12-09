@@ -149,8 +149,7 @@
 							<li>binding (like JAXB)
 						</ul>
 						<div style="position: relative; float: left; width: 50%">
-							<pre>
-							<code style="font-size: 15px">
+							<pre><code style="font-size: 15px">
 {
     "firstName": "John",
     "lastName": "Smith",
@@ -171,12 +170,10 @@
             "number": "646 555-4567"
         }
     ]
-}</code>
-						</pre>
+}</code></pre>
 						</div>
 						<div style="position: relative; float: left; width: 50%">
-							<pre>
-							<code style="font-size: 15px">
+							<pre><code style="font-size: 15px">
 &lt;person&gt;
   &lt;firstName&gt;John&lt;/firstName&gt;
   &lt;lastName&gt;Smith&lt;/lastName&gt;
@@ -192,8 +189,7 @@
     &lt;phoneNumber type="fax"&gt;646 555-4567&lt;/phoneNumber&gt;
   &lt;/phoneNumbers&gt;
 &lt;/person&gt;							
-</code>
-						</pre>
+</code></pre>
 						</div>
 					</div>
 				</section>
@@ -202,8 +198,7 @@
 					<p align="left">
 						JSR-311: JAX-RS aka REST (ref impl: Jersey)<br> Back to basics
 					</p>
-					<pre>
-						<code>
+					<pre><code contenteditable="true">
     GET
     POST
     PUT
@@ -214,8 +209,7 @@
     GET http://example.com/resources/item17		
     
     @Path("/resources/{id}/")		
-					</code>
-					</pre>
+					</code></pre>
 				</section>
 			</section>
 
@@ -237,8 +231,7 @@
 					<h2>java 8</h2>
 					<h3>Lambda expressions</h3>
 					SAM: Single Abstract Method
-					<pre>
-					<code contenteditable="true">
+					<pre><code contenteditable="true">
 button.setOnAction(new EventHandler&lt;ActionEvent&gt;() { 
     @Override 
     public void handle(ActionEvent actionEvent) { 
@@ -247,18 +240,15 @@ button.setOnAction(new EventHandler&lt;ActionEvent&gt;() {
          ... 
 	} 
 }); 
-</code>
-				</pre>
+</code></pre>
 					<div class="fragment">
 						Lambda equivalent
-						<pre>
-					<code contenteditable="true">
+						<pre><code contenteditable="true">
 button.setOnAction((event)-&gt; { 
     ToggleButton source = (ToggleButton) event.getSource(); 
     ... 
 }); 
-</code>
-				</pre>
+</code></pre>
 					</div>
 				</section>
 				<section>
@@ -266,31 +256,25 @@ button.setOnAction((event)-&gt; {
 					<h3>Lambda in collection API</h3>
 					<div>
 						external iteration
-						<pre>
-					<code contenteditable="true">
+						<pre><code contenteditable="true">
 for (Shape s : shapes) {
     s.setColor(RED);
 }
-</code>
-				</pre>
+</code></pre>
 					</div>
 
 					<div class="fragment">
 						internal iteration
-						<pre>
-<code contenteditable="true">shapes.forEach(s -&gt; { s.setColor(RED); }); </code>
-					</pre>
+						<pre><code contenteditable="true">shapes.forEach(s -&gt; { s.setColor(RED); }); </code></pre>
 					</div>
 
 					<div class="fragment">
 						streams (aka pipes)
-						<pre>
-					<code contenteditable="true">
+						<pre><code contenteditable="true">
 int sum = shapes.filter(s -&gt; s.getColor() == BLUE)
                 .map(s -&gt; s.getWeight())
                 .sum();
-</code>
-				</pre>
+</code></pre>
 					</div>
 				</section>
 
@@ -298,22 +282,18 @@ int sum = shapes.filter(s -&gt; s.getColor() == BLUE)
 					<h2>java 8</h2>
 					<h3>Lambda in collection API</h3>
 					optional class
-					<pre>
-					<code contenteditable="true">
+					<pre><code contenteditable="true">
 Optional&lt;Shape&gt; firstBlue = shapes.filter(s -&gt; s.getColor() == BLUE)
                                   .findFirst();
-</code>
-				</pre>
+</code></pre>
 					<div class="fragment">
 						parallel collections
-						<pre>
-					<code contenteditable="true">
+						<pre><code contenteditable="true">
 int sum = shapes.parallel()
                 .filter(s -&gt; s.getColor() == BLUE)
                 .map(s -&gt; s.getWeight())
                 .sum();
-</code>
-				</pre>
+</code></pre>
 					</div>
 
 				</section>
@@ -343,8 +323,7 @@ int sum = shapes.parallel()
 				<h3>Type annotations</h3>
 				<p>Making Java annotations more general and more useful</p>
 
-				<pre>
-					<code contenteditable="true">
+				<pre><code contenteditable="true">
 // immutability:
 @Immutable Date date = new Date(0);
 date.setTime(70);   // compile-time error
@@ -361,8 +340,7 @@ Document[@Readonly] docs1;   // docs1 is an unmodifiable
 
 // object creation:
 new @NonEmpty @Readonly List(myNonEmptyStringSet)
-</code>
-				</pre>
+</code></pre>
 
 			</section>
 
